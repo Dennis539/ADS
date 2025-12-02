@@ -80,7 +80,7 @@ while True:
     site_text = res.text.replace("&#8212;", "Keesje" )
     soup = BeautifulSoup(site_text, "lxml")
     if ".." not in end_path:
-        create_notebook(soup, False)
+        create_notebook(soup)
 
     next_link = soup.find("a", {"title" : "Next document"})
     end_path = next_link["href"]
@@ -89,3 +89,4 @@ while True:
     print(final_path)
 
     time.sleep(0.1)
+
