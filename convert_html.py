@@ -68,9 +68,8 @@ def create_notebook(soup: BeautifulSoup, pure_python: bool = True):
 base_link = "https://karssenberg.geo.uu.nl/labs/"
 intermediate_link = "https://karssenberg.geo.uu.nl/labs/mapalgebra/"
 end_path = "01_pcrasterMaps.html"
-counter = 0
 
-while counter < 20:
+while True:
     if ".." in end_path:
         intermediate_link = urljoin(base_link, end_path.split("/")[1]) + "/"
         final_path = urljoin(intermediate_link, end_path.split("/")[-1])
@@ -88,4 +87,5 @@ while counter < 20:
     if not end_path:
         break
     print(final_path)
+
     time.sleep(0.1)
